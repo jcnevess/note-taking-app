@@ -17,7 +17,13 @@ class NoteFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'title' => fake()->sentence(3),
+            'content' => fake()->paragraphs(4, true),
+            'archived' => fake()->boolean()
         ];
+    }
+
+    public function archived(): static {
+        return $this->state(fn (array $attributes) => ['archived' => true]);
     }
 }
