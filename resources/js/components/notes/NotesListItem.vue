@@ -2,7 +2,10 @@
 import { formatDate } from '@/lib/utils';
 import { Note } from '@/types/types';
 
-const { note, isSelected = false } = defineProps<{ note: Note; isSelected?: boolean }>();
+const { note, isSelected = false } = defineProps<{
+  note: Note;
+  isSelected?: boolean;
+}>();
 </script>
 
 <template>
@@ -20,7 +23,9 @@ const { note, isSelected = false } = defineProps<{ note: Note; isSelected?: bool
         {{ tag.name }}
       </div>
     </div>
-    <div class="note-last-edit text-xs text-gray-600">{{ formatDate(note.updated_at!) }}</div>
+    <div class="note-last-edit text-xs text-gray-600">
+      {{ formatDate(note.updated_at!) }}
+    </div>
   </div>
 </template>
 

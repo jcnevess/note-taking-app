@@ -14,7 +14,9 @@ const emit = defineEmits<{
 const showingArchived = ref(false);
 const selectedTagId = ref<number>();
 
-const showingAll = computed(() => !showingArchived.value && selectedTagId.value === undefined);
+const showingAll = computed(
+  () => !showingArchived.value && selectedTagId.value === undefined,
+);
 
 function showAllNotes() {
   showingArchived.value = false;

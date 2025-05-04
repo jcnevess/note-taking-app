@@ -18,7 +18,9 @@ const { notes, tags } = defineProps<{
 
 const filteredNotes = ref(notes.filter((note) => !note.archived));
 
-const selectedNote = ref<Note | undefined>(notes.length > 0 ? notes[0] : undefined);
+const selectedNote = ref<Note | undefined>(
+  notes.length > 0 ? notes[0] : undefined,
+);
 
 const headerText = ref(TEXT_ALL_NOTES);
 
@@ -36,7 +38,8 @@ function filterByTag(tagId: number) {
   filteredNotes.value = notes.filter(
     (note) => note.tags.findIndex((tag) => tag.id === tagId) !== -1,
   );
-  headerText.value = TEXT_FILTERED_BY_TAG + ` '${tags.find((tag) => tag.id === tagId)?.name}'`;
+  headerText.value =
+    TEXT_FILTERED_BY_TAG + ` '${tags.find((tag) => tag.id === tagId)?.name}'`;
 }
 
 function changeSelectedNote(noteId: number) {
@@ -57,7 +60,10 @@ function changeSelectedNote(noteId: number) {
     <div class="content grow">
       <PageHeader :headerText />
       <div class="flex">
-        <NotesList :notes="filteredNotes" @select-note="(noteId) => changeSelectedNote(noteId)" />
+        <NotesList
+          :notes="filteredNotes"
+          @select-note="(noteId) => changeSelectedNote(noteId)"
+        />
         <NoteViewer :note="selectedNote" />
       </div>
     </div>

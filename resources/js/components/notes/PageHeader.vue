@@ -7,8 +7,13 @@ const { headerText } = defineProps<{ headerText: string }>();
     <div id="logo" class="lg:hidden">
       <img src="/images/logo.svg" alt="Notes" />
     </div>
-    <div id="content" class="hidden lg:flex lg:items-center lg:justify-between lg:gap-6">
-      <h1 class="grow text-xl font-bold capitalize xl:text-2xl">{{ headerText }}</h1>
+    <div
+      id="content"
+      class="hidden lg:flex lg:items-center lg:justify-between lg:gap-6"
+    >
+      <h1 class="grow text-xl font-bold capitalize xl:text-2xl">
+        {{ headerText }}
+      </h1>
       <form action="#" id="searchbar" class="relative">
         <input
           type="search"
@@ -32,6 +37,10 @@ const { headerText } = defineProps<{ headerText: string }>();
 
 <style scoped>
 .background {
-  padding: clamp(1rem, calc(0.523rem + 2.036vw), 1.5rem); /* min: 16px, max: 24px */
+  padding: clamp(
+    1rem,
+    calc(0.523rem + 2.036vw),
+    1.5rem
+  ); /* min: 16px, max: 24px */
 }
 </style>
